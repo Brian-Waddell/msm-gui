@@ -1,5 +1,19 @@
 class MoviesController < ApplicationController
 
+
+  def destroy 
+
+    the_id = params.fetch("movie_id")
+
+    movie_relation = Movie.where({ :id => the_id})
+
+    the_movie = movie_relation.at(0) 
+
+    the_movie.destroy 
+
+    redirect_to("/movies")
+  end 
+
   def create 
     
     m = Movie.new 
@@ -12,7 +26,7 @@ class MoviesController < ApplicationController
     m.save
 
   redirect_to("/movies")
-  
+
   end 
   def index
     matching_movies = Movie.all
