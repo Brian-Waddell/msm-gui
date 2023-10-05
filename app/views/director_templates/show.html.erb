@@ -5,7 +5,40 @@
 <a href="/directors">
   Go back
 </a>
+<div> </div> 
+<a href = "/delete_director/<%= @the_director.id %>" > 
+Delete director 
+</a> 
+<hr>
+<form action = "/insert_director" method = "post">
+  <div>
+  <label for= "director_name" >
+    Name 
+  </label>
+  <input id = "director_name" type = "text" name = "the_name" >
+  </div>
+  <div>
+  <label for= "director_dob" >
+    Dob
+  </label>
+  <input id = "director_dob" type = "date" name = "the_birth"  >
+  </div>
+  <div>
+  <label for= "director_bio" >
+    Bio
+  </label>
+  <input id = "director_bio" type = "text" name = "the_bio" >
+  </div>
+  <div>
+  <label for= "director_image" >
+    Image
+  </label>
+  <input id = "director_image" type = "text" name = "the_image" >
+  </div>
 
+  <button> Update Director </button>
+  
+</form>
 <hr>
 
 <dl>

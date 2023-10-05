@@ -1,5 +1,21 @@
 class ActorsController < ApplicationController
 
+  def update
+
+   actor_id = params.fetch("a_id")
+   
+   matching_actors_relation = Actor.where({ :id => actor_id})
+
+   solution = matching_actors_relation.at(0)
+
+   solution.name = params.fetch("the_name")
+   solution.dob = params.fetch("the_birth")
+   solution.bio = params.fetch("the_bio")
+   solution.image = params.fetch("the_image")
+
+   solution.save 
+   redirect_to("/actors/#{solution.id}")
+  end 
 
   def destroy
     the_id = params.fetch("actor_id") 
@@ -21,8 +37,9 @@ class ActorsController < ApplicationController
     a.image = params.fetch("the_image")
 
     a.save 
-
-    redirect_to("/actors")
+   
+    redirect_to("/directors")
+    
   end
 
 
