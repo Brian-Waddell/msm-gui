@@ -1,6 +1,36 @@
 <h1>
-  List of all movies
+  List of all movies 
 </h1>
+
+<form action = "/insert_movie_record" method = "post"> 
+  <div>
+    <label for = "movie_title"> Title </label>
+    <input id = "movie_title" type = "text" name = "the_title" >
+  </div>
+  <div>
+    <label for = "movie_year"> Year </label>
+    <input id = "movie_year" type = "text" name = "the_year" >
+  </div>
+  <div>
+    <label for = "movie_duration"> Duration </label>
+    <input id = "movie_duration" type = "text" name = "the_duration" >
+  </div>
+  <div>
+    <label for = "movie_description"> Description </label>
+    <input id = "movie_description" type = "text" name = "the_description" >
+  </div>
+  <div>
+    <label for = "movie_image"> Image </label>
+    <input id = "movie_image" type = "text" name = "the_image" >
+  </div>
+  <div>
+    <label for = "movie_director"> Director ID </label>
+    <input id = "movie_director" type = "text" name = "the_director" >
+  </div>
+<button> Create Movie </button>
+</form>
+
+
 
 <hr>
 
@@ -53,7 +83,13 @@
       
       <% the_director = matching_directors.at(0) %>
 
-      <%= the_director.name %>
+      <% if(the_director == nil) %>
+         Uh oh! We weren't able to find a driector for this movie
+      <% else %>
+        <%= the_director.name %>
+      <% end %>
+
+      
     </td>
 
     <td>
