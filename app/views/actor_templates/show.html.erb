@@ -5,12 +5,41 @@
 <a href="/actors">
   Go back
 </a>
+
 <div> </div>
+
 <a href = "/delete_actor/<%= @the_actor.id%>">
  Delete actor 
- </a>
+</a>
 <hr>
-
+<form action = "/update_actor_record/<%= @the_actor.id%>" method = "post">
+  <div>
+  <label for= "actor_name" >
+    Name 
+  </label>
+  <input id = "actor_name" type = "text" name = "the_name" >
+  </div>
+  <div>
+  <label for= "actor_dob" >
+    Dob
+  </label>
+  <input id = "actor_dob" type = "date" name = "the_birth"  >
+  </div>
+  <div>
+  <label for= "actor_bio" >
+    Bio
+  </label>
+  <input id = "actor_bio" type = "text" name = "the_bio" >
+  </div>
+  <div>
+  <label for= "actor_image" >
+    Image
+  </label>
+  <input id = "actor_image" type = "text" name = "the_image" >
+  </div>
+  <button> Update actor </button>
+</form>
+<hr> 
 <dl>
   <dt>
     Name
