@@ -38,7 +38,7 @@ class ActorsController < ApplicationController
 
     a.save 
    
-    redirect_to("/directors")
+    redirect_to("/actors")
     
   end
 

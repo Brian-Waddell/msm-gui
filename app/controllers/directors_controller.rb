@@ -1,5 +1,22 @@
 class DirectorsController < ApplicationController
-  
+  def update 
+
+   director_id = params.fetch("direct_id")
+   
+   matching_director_relation = Director.where({:id => director_id})
+
+   solution = matching_director_relation.at(0)
+
+   solution.name = params.fetch("the_name")
+   solution.dob = params.fetch("the_birth")
+   solution.bio = params.fetch("the_bio")
+   solution.image = params.fetch("the_image")
+
+   solution.save 
+   redirect_to("/directors/#{solution.id}")
+  end 
+
+   
   def destroy
     dir_id = params.fetch("direct_id")
     director_container= Director.where({:id => dir_id})
@@ -8,7 +25,7 @@ class DirectorsController < ApplicationController
     the_director.destroy 
     
     redirect_to("/directors")
-    
+
   end 
 
   def create 
